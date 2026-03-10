@@ -1,0 +1,24 @@
+CREATE SEQUENCE positions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE TABLE tbl_positions (
+    position_id   NUMBER        PRIMARY KEY,
+    election_id   VARCHAR2(10)  NOT NULL,
+    position_name VARCHAR2(100) NOT NULL,
+    CONSTRAINT fk_position_election FOREIGN KEY (election_id) REFERENCES tbl_elections(election_id)
+);
+
+CREATE OR REPLACE TRIGGER positions_id_trg
+BEFORE INSERT ON tbl_positions
+FOR EACH ROW
+BEGIN
+    IF :NEW.position_id IS NULL THEN
+        SELECT positions_id_seq.NEXTVAL INTO :NEW.position_id FROM dual;
+    END IF;
+END;
+/
+
+

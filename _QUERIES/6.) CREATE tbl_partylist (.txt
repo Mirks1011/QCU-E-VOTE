@@ -1,0 +1,25 @@
+-- Drop and recreate tbl_partylist
+DROP TABLE tbl_partylist CASCADE CONSTRAINTS;
+
+CREATE TABLE tbl_partylist (
+    partylist_id NUMBER        PRIMARY KEY,
+    partylist    VARCHAR2(100) NOT NULL
+);
+
+CREATE OR REPLACE TRIGGER partylist_id_trg
+BEFORE INSERT ON tbl_partylist
+FOR EACH ROW
+BEGIN
+    IF :NEW.partylist_id IS NULL THEN
+        SELECT partylist_id_seq.NEXTVAL INTO :NEW.partylist_id FROM dual;
+    END IF;
+END;
+/
+
+-- Insert
+INSERT INTO tbl_partylist (partylist) VALUES ('AGOS PARTY');
+INSERT INTO tbl_partylist (partylist) VALUES ('SIGLA PARTY');
+COMMIT;
+
+-- Verify
+SELECT * FROM tbl_partylist;

@@ -1,0 +1,36 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$dsn = 'odbc:OracleXE';      
+$username = 'user1337';       // Replace these with you current user/schema on ORACLE db 
+$password = 'mirks1011';        
+
+try {
+    // Create PDO connection
+    $conn = new PDO($dsn, $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+
+// Test function
+function testConnection(PDO $conn) {
+    echo "Database Connection Successful!<br>";
+
+    $stmt = $conn->query("SELECT * FROM USERS WHERE ROWNUM <= 1");
+
+    if ($stmt) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            echo "Row fetched:<br>";
+            print_r($row);
+        } else {
+            echo "No rows returned from USERS table.";
+        }
+    } else {
+        echo "Query returned false.";
+    }
+}

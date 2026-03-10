@@ -1,0 +1,29 @@
+-- Drop old table
+DROP TABLE tbl_voters;
+
+-- Recreate tbl_voters with course_id FK
+CREATE TABLE tbl_voters (
+    user_id        NUMBER        PRIMARY KEY,
+    student_id     VARCHAR2(50)  UNIQUE NOT NULL,
+    voters_id      VARCHAR2(10)  UNIQUE NOT NULL,
+    gender         VARCHAR2(10),
+    birthday       VARCHAR2(20),
+    age            NUMBER(3),
+    course_id      NUMBER,
+    created_at     VARCHAR2(30),
+    is_voted       NUMBER(1)     DEFAULT 0,
+    otp_code       VARCHAR2(255),
+    otp_expires_at VARCHAR2(30),
+    CONSTRAINT fk_voter_course FOREIGN KEY (course_id) REFERENCES tbl_course(course_id)
+);
+
+-- Recreate trigger
+CREATE OR REPLACE TRIGGER voters_user_id_trg
+BEFORE INSERT ON tbl_voters
+FOR EACH ROW
+BEGIN
+    IF :NEW.user_id IS NULL THEN
+        SELECT voters_user_id_seq.NEXTVAL INTO :NEW.user_id FROM dual;
+    END IF;
+END;
+/

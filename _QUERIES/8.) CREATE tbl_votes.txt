@@ -1,0 +1,35 @@
+-- Sequence
+CREATE SEQUENCE votes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+-- Create tbl_votes
+CREATE TABLE tbl_votes (
+    vote_id               NUMBER        PRIMARY KEY,
+    voter_id              NUMBER        NOT NULL,
+    vote_timestamp        VARCHAR2(30),
+    encrypted_vote_token  VARCHAR2(255),
+    election_id           VARCHAR2(10)  NOT NULL,
+    position_id           NUMBER        NOT NULL,
+    candidate_id          NUMBER        NOT NULL,
+    CONSTRAINT fk_vote_voter     FOREIGN KEY (voter_id)     REFERENCES tbl_voters(user_id),
+    CONSTRAINT fk_vote_election  FOREIGN KEY (election_id)  REFERENCES tbl_elections(election_id),
+    CONSTRAINT fk_vote_position  FOREIGN KEY (position_id)  REFERENCES tbl_positions(position_id),
+    CONSTRAINT fk_vote_candidate FOREIGN KEY (candidate_id) REFERENCES tbl_candidates(candidate_id)
+);
+
+-- Trigger
+CREATE OR REPLACE TRIGGER votes_id_trg
+BEFORE INSERT ON tbl_votes
+FOR EACH ROW
+BEGIN
+    IF :NEW.vote_id IS NULL THEN
+        SELECT votes_id_seq.NEXTVAL INTO :NEW.vote_id FROM dual;
+    END IF;
+END;
+/
+
+-- Verify
+SELECT * FROM tbl_votes;

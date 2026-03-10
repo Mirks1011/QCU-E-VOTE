@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QCU-SSC E-Vote System — Data Privacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/QCU-E-VOTE/assets/css/voter-datapriv.css">
+</head>
+<body>
+<div class="screen">
+
+    <!-- HEADER -->
+    <div class="qcu-header">
+    <div class="header-container">
+        <div class="logo-circle">
+        <img src="/QCU-E-VOTE/assets/images/qcu-logo.svg" alt="QCU Logo" />
+        </div>
+        <div class="header-info">
+        <h1>QCU-SSC E-VOTE SYSTEM</h1>
+        <p>One Account. One Vote. <span class="secured">QCU Secured</span></p>
+        </div>
+    </div>
+    </div>
+
+  <!-- BLURRED BACKGROUND — changes based on voterType -->
+  <main class="blurred-bg">
+    <div class="left-panel">
+      <div class="welcome-block">
+        <h2>Welcome<br><span>QCUians</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="btn-group">
+        <button class="btn" id="btnNew">New Voter</button>
+        <button class="btn" id="btnOld">Old Voter</button>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="voter-card">
+        <div class="card-inner" id="bgCardContent">
+          <!-- Populated by JS based on voterType -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="status-pill"><div class="dot"></div>System Online</div>
+    <div class="status-pill"><div class="dot"></div>Scanner Ready</div>
+  </footer>
+
+  <!-- MODAL OVERLAY -->
+  <div class="overlay" id="overlay">
+    <div class="modal" id="modal">
+
+      <div class="modal-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4L6 12v14c0 10.5 7.7 20.3 18 22.6C35.3 46.3 42 36.5 42 26V12L24 4z" fill="#F2C94C" stroke="#D4A017" stroke-width="2"/>
+          <path d="M16 24l6 6 10-10" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h2 class="modal-title">Data Privacy</h2>
+
+      <p class="modal-body">
+        Your personal data is collected and processed in accordance with the
+        <strong>Data Privacy Act of 2012 (RA 10173)</strong>. By using this system,
+        you consent to the secure storage and lawful processing of your information
+        for operational and transaction purposes.
+      </p>
+
+
+
+      <label class="checkbox-label" id="checkLabel">
+        <input type="checkbox" id="agreeCheck">
+        <span class="custom-check">
+          <svg viewBox="0 0 10 10" fill="none">
+            <path d="M2 5l2.5 2.5 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        I agree to the Privacy Policy <span class="required">*</span>
+      </label>
+
+      <button class="btn-confirm" id="confirmBtn" disabled>Confirm</button>
+
+    </div>
+  </div>
+
+</div>
+<script src="/QCU-E-VOTE/Scripts/voter-datapriv.js"></script>
+</body>
+</html>

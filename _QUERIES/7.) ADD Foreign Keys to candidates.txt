@@ -1,0 +1,8 @@
+-- Foreign Keys (separated)
+ALTER TABLE tbl_candidates
+ADD CONSTRAINT fk_candidate_position
+FOREIGN KEY (position_id) REFERENCES tbl_positions(position_id);
+
+ALTER TABLE tbl_candidates
+ADD CONSTRAINT fk_candidate_partylist
+FOREIGN KEY (partylist_id) REFERENCES tbl_partylist(partylist_id);

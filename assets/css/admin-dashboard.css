@@ -227,15 +227,12 @@ nav {
 
 /* Welcome heading */
 .welcome-heading {
-  font-family: "Playfair Display";
-  font-size: 2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.02em;
   color: var(--text);
   line-height: 1;
-  font-style: normal;
 }
-
-/* WELCOME BACK, ADMIN! */
-
 
 /* ── Election nav bar ── */
 .election-nav {
@@ -246,14 +243,7 @@ nav {
   background: var(--white);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 600;
-
 }
-
-
-
 
 .election-nav h2 {
   font-size: 1.1rem;
@@ -506,7 +496,7 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-
+  
 }
 
 .bar {

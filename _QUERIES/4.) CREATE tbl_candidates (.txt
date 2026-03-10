@@ -1,0 +1,25 @@
+-- Drop and recreate tbl_candidates
+DROP TABLE tbl_candidates;
+
+CREATE TABLE tbl_candidates (
+    candidate_id NUMBER        PRIMARY KEY,
+    position_id  NUMBER        NOT NULL,
+    partylist_id NUMBER        NOT NULL,
+    first_name   VARCHAR2(100) NOT NULL,
+    middle_name  VARCHAR2(100),
+    last_name    VARCHAR2(100) NOT NULL,
+    suffix       VARCHAR2(10),
+    campaign     VARCHAR2(500),
+    image        VARCHAR2(255)
+);
+
+-- Trigger
+CREATE OR REPLACE TRIGGER candidates_id_trg
+BEFORE INSERT ON tbl_candidates
+FOR EACH ROW
+BEGIN
+    IF :NEW.candidate_id IS NULL THEN
+        SELECT candidates_id_seq.NEXTVAL INTO :NEW.candidate_id FROM dual;
+    END IF;
+END;
+/

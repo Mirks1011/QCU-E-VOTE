@@ -1,0 +1,5 @@
+Need adjustments parts (Some needed some are not depends on if it is feasible or not):
+
+Yung OTP should NOT be automatically erased, rather exists until voting period is over for example voting period is from 8:00AM to 5:00PM then will as soon as it hits 5:01PM the otp will be cleared. So in case of failure we can still re-login again
+
+Also add new column in the tbl_elections called voting_period that will be set by admin to set the period of how long the OTP gonna be valid.

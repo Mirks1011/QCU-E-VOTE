@@ -1,0 +1,15 @@
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSIT',  'Bachelor of Science in Information Technology');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSCS',  'Bachelor of Science in Computer Science');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSCE',  'Bachelor of Science in Civil Engineering');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSEE',  'Bachelor of Science in Electrical Engineering');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSME',  'Bachelor of Science in Mechanical Engineering');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSED',  'Bachelor of Science in Education');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSBA',  'Bachelor of Science in Business Administration');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSCRIM','Bachelor of Science in Criminology');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSN',   'Bachelor of Science in Nursing');
+INSERT INTO tbl_course (course_code, course_name) VALUES ('BSARCH','Bachelor of Science in Architecture');
+
+COMMIT;
+
+-- Verify
+SELECT * FROM tbl_course;

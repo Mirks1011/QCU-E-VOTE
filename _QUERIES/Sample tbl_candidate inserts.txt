@@ -1,0 +1,25 @@
+-- Reinsert starting from 1
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (12, 5, 'John Yakuza',        'Building a better QCU for everyone.',              '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (12, 6, 'Kurt Joel A. Laride','Unity and progress for all QCUians.',              '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (13, 5, 'Carlo Reyes',        'Strengthening internal affairs for students.',     '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (13, 6, 'Ana Flores',         'Empowering students from within.',                 '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (14, 5, 'Miguel Torres',      'Building bridges beyond QCU.',                     '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (14, 6, 'Sofia Ramos',        'Representing QCU with pride.',                     '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (15, 5, 'Rafael Mendoza',     'Efficient operations for a better student life.',  '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (15, 6, 'Isabella Cruz',      'Streamlining operations for all.',                 '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (16, 5, 'Gabriel Villanueva', 'Transparent and accountable financial management.','/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (16, 6, 'Camille Bautista',   'Every peso counts for QCUians.',                   '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (17, 5, 'Luis Garcia',        'Addressing student concerns effectively.',         '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (17, 6, 'Daniela Lopez',      'Your voice in internal affairs.',                  '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (18, 5, 'Marco Aquino',       'Connecting QCU to the outside world.',             '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (18, 6, 'Angela Navarro',     'Stronger ties with external partners.',            '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (19, 5, 'Paolo Castillo',     'Fair and just resolution for all.',                '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (19, 6, 'Bianca Morales',     'Standing up for student rights.',                  '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (20, 5, 'Diego Fernandez',    'Seamless events for a vibrant campus life.',       '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (20, 6, 'Gabrielle Gomez',    'Organizing events that matter.',                   '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (21, 5, 'Adrian Perez',       'Growing our community together.',                  '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (21, 6, 'Patricia Jimenez',   'Every student belongs here.',                      '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (22, 5, 'Victor Dela Vega',   'Keeping QCUians informed and connected.',          '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+INSERT INTO tbl_candidates (position_id, partylist_id, name, campaign, image) VALUES (22, 6, 'Stephanie Lim',      'Spreading the right information always.',          '/QCU-E-VOTE/assets/images/candidates/default.jpg');
+
+COMMIT;
