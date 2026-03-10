@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../assets/css/admin-election.css">
+</head>
+
+<body>
+    <div class="layout">
+
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="brand-logo">
+        <img src="../assets/images/qcu-logo.svg" alt="QCU Logo"/>
+      </div>
+      <div class="brand-text">
+        <h2>QCU–SSC</h2>
+        <span>E- Vote System</span>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <nav>
+      <a class="nav-item" href="#">
+        <div class="nav-icon">
+          <img src="../assets/images/logo-dashboard.svg" alt="Dashboard Icon"/>
+        </div>
+        DASHBOARD
+      </a>
+
+      <a class="nav-item active" href="#">
+        <div class="nav-icon">
+          <img src="../assets/images/logo-elections.svg" alt="Elections Icon"/>
+        </div>
+        ELECTIONS
+      </a>
+
+      <a class="nav-item" href="#">
+        <div class="nav-icon">
+          <img src="../assets/images/logo-voters.svg" alt="Voters Icon"/>
+        </div>
+        VOTERS
+      </a>
+
+      <a class="nav-item" href="#">
+        <div class="nav-icon">
+          <img src="../assets/images/logo-candidates.svg" alt="Candidates Icon"/>
+        </div>
+        CANDIDATES
+      </a>
+
+      <a class="nav-item" href="#">
+        <div class="nav-icon">
+          <img src="../assets/images/logo-results.svg" alt="Results Icon"/>
+        </div>
+        RESULTS
+      </a>
+    </nav>
+
+    <div class="sidebar-profile">
+      <div class="profile-avatar">
+        <img src="assets/images/admin-avatar.png" alt="Admin Avatar"/>
+      </div>
+      <div class="profile-info">
+        <p>Bryan Marcelo</p>
+        <span>ADMIN 1</span><br/>
+        <span>ID: 594619</span>
+      </div>
+    </div>
+
+    <div class="sidebar-logout">
+      <button class="logout-btn">
+        <img src="../assets/images/logo-logout.svg" alt="Logout"/>
+      </button>
+    </div>
+
+  </aside>
+
+ <!-- MAIN CONTENT -->
+  <main class="main">
+    <header class="top-bar">
+      <h1 class="page-title">ELECTION</h1>
+      <div class="top-actions">
+        <div class="search-wrap">
+          <input type="text" class="search-input" id="searchInput" placeholder="Type to search..."/>
+          <span class="search-icon">▼</span>
+        </div>
+        <button class="add-btn" onclick="openAddModal()">+</button>
+      </div>
+    </header>
+
+    <section class="content">
+
+      <!-- RECENT ELECTION -->
+      <div class="section-label">Recent Election:</div>
+      <div id="recent-slot">
+        <div class="election-card recent" id="recent-card">
+          <div class="election-info">
+            <div class="election-title" id="recent-title">QCU-SSC ELECTION<br/>2027</div>
+            <div class="election-meta">Voting Status: <span class="status upcoming" id="recent-status">Upcoming</span></div>
+            <div class="election-meta" id="recent-date-info"></div>
+          </div>
+          <div class="card-actions">
+            <button class="icon-btn" title="Edit" onclick="openEditModal('recent')">✏️</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLOSED ELECTIONS -->
+      <div class="section-label">Election Closed:</div>
+      <div id="closed-list">
+        <div class="election-card closed" id="card-2026" data-id="2026">
+          <div class="election-title-sm" id="title-2026">QCU-SSC ELECTION 2026</div>
+          <div class="card-actions">
+            <button class="icon-btn" title="Delete" onclick="openDeleteModal('2026')">🗑️</button>
+            <button class="icon-btn" title="Edit" onclick="openEditModal('2026')">✏️</button>
+          </div>
+        </div>
+        <div class="election-card closed" id="card-2025" data-id="2025">
+          <div class="election-title-sm" id="title-2025">QCU-SSC ELECTION 2025</div>
+          <div class="card-actions">
+            <button class="icon-btn" title="Delete" onclick="openDeleteModal('2025')">🗑️</button>
+            <button class="icon-btn" title="Edit" onclick="openEditModal('2025')">✏️</button>
+          </div>
+        </div>
+        <div class="election-card closed" id="card-2024" data-id="2024">
+          <div class="election-title-sm" id="title-2024">QCU-SSC ELECTION 2024</div>
+          <div class="card-actions">
+            <button class="icon-btn" title="Delete" onclick="openDeleteModal('2024')">🗑️</button>
+            <button class="icon-btn" title="Edit" onclick="openEditModal('2024')">✏️</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="closeAllModals()"></div>
+
+  <!-- ===== EDIT MODAL ===== -->
+  <div class="modal" id="editModal">
+    <div class="modal-header">
+      <div class="modal-logo-circle">QCU</div>
+      <div>
+        <div class="modal-title">QCU-SSC EDIT ELECTION</div>
+        <div class="modal-subtitle">E- VOTE SYSTEM</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <label class="form-label">ELECTION NAME:</label>
+        <input type="text" class="form-input" id="edit-name" placeholder="Enter election name"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">START DATE/TIME:</label>
+        <input type="datetime-local" class="form-input" id="edit-start"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">END DATE/TIME:</label>
+        <input type="datetime-local" class="form-input" id="edit-end"/>
+      </div>
+      <div class="form-error" id="edit-error"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeAllModals()">CANCEL</button>
+      <button class="btn-save" onclick="saveEdit()">SAVE CHANGES</button>
+    </div>
+  </div>
+
+  <!-- ===== ADD MODAL ===== -->
+  <div class="modal" id="addModal">
+    <div class="modal-header">
+      <div class="modal-logo-circle">QCU</div>
+      <div>
+        <div class="modal-title">QCU-SSC ADD ELECTION</div>
+        <div class="modal-subtitle">E- VOTE SYSTEM</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <label class="form-label">ELECTION NAME:</label>
+        <input type="text" class="form-input" id="add-name" placeholder="Enter election name"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">START DATE/TIME:</label>
+        <input type="datetime-local" class="form-input" id="add-start"/>
+      </div>
+      <div class="form-row">
+        <label class="form-label">END DATE/TIME:</label>
+        <input type="datetime-local" class="form-input" id="add-end"/>
+      </div>
+      <div class="form-error" id="add-error"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeAllModals()">CANCEL</button>
+      <button class="btn-save" onclick="saveAdd()">ADD ELECTION</button>
+    </div>
+  </div>
+
+  <!-- ===== DELETE MODAL ===== -->
+  <div class="modal modal-sm" id="deleteModal">
+    <div class="delete-modal-content">
+      <div class="delete-icon">🗑️</div>
+      <div class="modal-title" style="font-size:20px; text-align:center;">DELETE ELECTION</div>
+      <div class="delete-warning" id="delete-label">Are you sure you want to delete this election? This action cannot be undone.</div>
+    </div>
+    <div class="modal-footer" style="justify-content:center; gap:16px; margin-top:24px;">
+      <button class="btn-cancel" onclick="closeAllModals()">CANCEL</button>
+      <button class="btn-delete" onclick="confirmDelete()">DELETE</button>
+    </div>
+  </div>
+
+  <script src="../includes/election.js"></script>
+
+</body>
+</html>
